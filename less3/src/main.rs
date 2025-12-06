@@ -30,14 +30,29 @@ fn main() {
         print!("{i} ");
     }
     println!();
-
+    
     // to do something
     for i in &mut v {
         *i += 1;
         print!("{i} ");
     }
-
-
+    println!();
+    
+    
     // String DS : feels hard for many rustaceans
+    
+    let s=String::new();
+    println!("{:?}",s);
+
+    let s1:Vec<char>=['s','t','r'].to_vec();
+    // let s1:Vec<char>="string";
+    println!("{:?}",s1);
+
+
+    let mut s2=String::from("Foo");
+    s2.push_str("bar");
+    println!("{:?}",s2);
+
+    // String in Rust does not allow indexing
 
 }
