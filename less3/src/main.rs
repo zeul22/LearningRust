@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 fn main() {
     // Collections
     let mut v: Vec<i32> = Vec::new();
@@ -54,5 +55,49 @@ fn main() {
     println!("{:?}",s2);
 
     // String in Rust does not allow indexing
+
+
+    // HasMap
+    let mut scores:HashMap<u8,i32>=HashMap::new();
+    scores.insert(1,12);
+    scores.insert(2,22);
+    scores.insert(3,32);
+
+    println!("{:?}",scores);
+
+    let get_val_from_hash=1;
+    // let score=scores.get(&get_val_from_hash).copied().unwrap_or(0);
+
+    // println!("{score}");
+
+    // Observation: This will work
+    // for i in &scores{
+    //     println!{"{:?}",i};
+    // }
+    // for (key,val) in scores{
+    //     println!{"{key} : {val}"};
+    // }
+    // Observation: This wont work due to borrow rules
+    // for i in scores{
+    //     println!{"{:?}",i};
+    // }
+    // for (key,val) in scores{
+    //     println!{"{key} : {val}"};
+    // }
+    // Observation: This will work
+    // for i in &scores{
+    //     println!{"{:?}",i};
+    // }
+    // for (key,val) in &scores{
+    //     println!{"{key} : {val}"};
+    // }
+
+    for (key,_val) in &mut scores{
+        // scores.entry(*key).or_insert(100);
+        *_val+=100;
+    }
+    println!("{scores:?}");
+
+
 
 }
